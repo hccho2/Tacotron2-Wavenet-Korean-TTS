@@ -9,18 +9,8 @@ Based on
 - https://github.com/hccho2/Tacotron-Wavenet-Vocoder
 
 
-## Tacotron History
-- [keithito](https://github.com/keithito/tacotron)가 Tocotron을 처음 구현하여 공개하였고, 이를 기반으로 한국어를 적용한 [carpedm20](https://github.com/carpedm20/multi-speaker-tacotron-tensorflow)의 구현이 있다.
-- carpedm20의 구현은 deep voice2에서 제안하고 있는 multi-speaker도 같이 구현했다.
-- Tacotron모델에서는 vocoder로 Griffin Lim 알고리즘을 사용하고 있다.
-
-## Wavenet History
-- Wavenet 구현은 [ibab](https://github.com/ibab/tensorflow-wavenet)의 구현이 대표적이다.
-- ibab은 local condition을 구현하지 않았다. 그래서 train 후, 소리를 생성하면 알아들을 수 있는 말이 아니고, '옹알거리는 소리'만 들을 수 있다. 의미 있는 소리를 들을 수 있기 위해서는 local condition이 적용해서 구현해야 한다.
-- local condition을 구현한 wavenet-vocoder 구현은 [r9y9](https://github.com/r9y9/wavenet_vocoder)의 구현이 대표적이다.
-- local condition으로 mel spectrogram을 넣어주는데, mel spectrogram은 raw audio 길이보다 짧아지기 때문에 upsampling 과정이 필요하다. upsampling은 conv2d_transpose를 이용한다.
-
 ## Tacotron 2
+- Tacotron 모델에 관한 설명은 이전 [repo](https://github.com/hccho2/Tacotron-Wavenet-Vocoder) 참고하시면 됩니다.
 - [Tacotron2](https://arxiv.org/abs/1712.05884)에서는 모델 구조도 바뀌었고, Location Sensitive Attention, Stop Token, Vocoder로 Wavenet을 제안하고 있다.
 - Tacotron2의 구현은 [Rayhane-mamah](https://github.com/Rayhane-mamah/Tacotron-2)의 것이 있는데, 이 역시, keithito, r9y9의 코드를 기반으로 발전된 것이다.
 
