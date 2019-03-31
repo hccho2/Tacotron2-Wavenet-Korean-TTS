@@ -6,7 +6,7 @@ Based on
 - https://github.com/keithito/tacotron
 - https://github.com/carpedm20/multi-speaker-tacotron-tensorflow
 - https://github.com/Rayhane-mamah/Tacotron-2
-
+- https://github.com/hccho2/Tacotron-Wavenet-Vocoder
 
 
 ## Tacotron History
