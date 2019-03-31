@@ -17,7 +17,7 @@ Based on
 ## This Project
 * Tacotron2 모델로 한국어 TTS를 만드는 것이 목표입니다.
 * 한국어 data의 생성은 이전 이전 [repo](https://github.com/hccho2/Tacotron-Wavenet-Vocoder) 참고하시면 됩니다.
-* [Rayhane-mamah](https://github.com/Rayhane-mamah/Tacotron-2)의 구현은 Customization된 Layer를 많이 홯용했는데, 제가 보기에는 너무 복잡하게 한 것 같아, Cumomization Layer를 많이 줄이고, Tensorflow에 구현되어 있는 Layer를 많이 활요했습니다.
+* [Rayhane-mamah](https://github.com/Rayhane-mamah/Tacotron-2)의 구현은 Customization된 Layer를 많이 사용했는데, 제가 보기에는 너무 복잡하게 한 것 같아, Cumomization Layer를 많이 줄이고, Tensorflow에 구현되어 있는 Layer를 많이 활요했습니다.
 
 	
 ## Tacotron 1에서 좋은 결과를 얻기 위해서는 
