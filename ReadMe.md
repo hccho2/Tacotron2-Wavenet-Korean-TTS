@@ -1,11 +1,10 @@
-# Tocotron + Wavenet Vocoder + Korean TTS
-Tacotron모델과 Wavenet Vocoder를 결합하여  한국어 TTS구현하는 project입니다.
+# Tocotron2 + Wavenet Vocoder + Korean TTS
+Tacotron2 모델과 Wavenet Vocoder를 결합하여  한국어 TTS구현하는 project입니다.
+Tacotron2 모델을 Multi-Speaker모델로 확장했습니다.
 
 Based on 
 - https://github.com/keithito/tacotron
 - https://github.com/carpedm20/multi-speaker-tacotron-tensorflow
-- https://github.com/ibab/tensorflow-wavenet
-- https://github.com/r9y9/wavenet_vocoder
 - https://github.com/Rayhane-mamah/Tacotron-2
 
 
