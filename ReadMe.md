@@ -12,22 +12,12 @@ Based on
 ## Tacotron 2
 - Tacotron 모델에 관한 설명은 이전 [repo](https://github.com/hccho2/Tacotron-Wavenet-Vocoder) 참고하시면 됩니다.
 - [Tacotron2](https://arxiv.org/abs/1712.05884)에서는 모델 구조도 바뀌었고, Location Sensitive Attention, Stop Token, Vocoder로 Wavenet을 제안하고 있다.
-- Tacotron2의 구현은 [Rayhane-mamah](https://github.com/Rayhane-mamah/Tacotron-2)의 것이 있는데, 이 역시, keithito, r9y9의 코드를 기반으로 발전된 것이다.
+- Tacotron2의 구현은 [Rayhane-mamah](https://github.com/Rayhane-mamah/Tacotron-2)의 것이 있는데, 이 역시, [keithito](https://github.com/keithito/tacotron), [r9y9](https://github.com/r9y9/wavenet_vocoder)의 코드를 기반으로 발전된 것이다.
 
 ## This Project
-* Tacotron 모델에 Wavenet Vocoder를 적용하는 것이 1차 목표이다.
-* Tacotron과 Wavenet Vocoder를 같이 구현하기 위해서는 mel spectrogram을 만들때 부터, 두 모델 모두에 적용할 수 있도록 만들어 주어야 한다(audio의 길이가 hop_size의 배수가 될 수 있도록). 이렇게 해야, wavenet training할 때, upsampling이 원할하다.
-* Tacotron2의 stop token이나 Location Sensitive Attention을 Tacotron1에 적용하는  그렇게 효과적이지 못했다(제 경험상).
-* carpedm20의 구현과 다른 점
-    * Tensorflow 1.3에서만 실행되는 carpedm20의 구현을 tensorflow 1.8이상에서도 작동할 수 있게 수정. Tensorflow가 버전이 업되면서, AttentionWrapperState에서 attention_state가 추가되었는데, 이 부분을 맞게 수정해 줌.
-    * dropout bug 수정 
-	* DecoderPrenetWrapper, AttentionWrapper 순서를 바로 잡음. 이렇게 해야 keithito의 구현과 같아지고 논문에서의 취지와도 일치함. AttentionWrapper를 DecoderPrenetWrapper가 감싸야, Prenet의 결과가 AttentionWrapper의 입력으로 들어간다.
-	* mel spectrogram 생성 방식을 keithito의 구현 방법으로 환원(이것도 keithito가 추후에 수정한 것임). 이렇게 mel spectrogram 생성방식을 바꾸면 train 속도가 많이 향상됨. 20k step 이상 train해야 소리가 들리기 시작했는데, 이렇게 하면 8k step부터 소리가 들린다.
-	* padding이 된 곳에 Attention이 가지 않도록 보완.
-	* Attention 모델 추가: LocationSensitiveAttention, GmmAttention 등
-* ibab의 wavenet 구현과 다른 점
-	* [fast generation](https://github.com/tomlepaine/fast-wavenet)을 위해서 tf.Variable을 이용해서 구현했다. 이 project에서는 Tensorflow middle level api tf.layers.conv1d를 이용하여, 코드를 이해하기 쉽게 만들었다.
-* 참고 코드 등에서의 복잡한 option을 많이 줄였습니다.
+* Tacotron2 모델로 한국어 TTS를 만드는 것이 목표입니다.
+* 한국어 data의 생성은 이전 이전 [repo](https://github.com/hccho2/Tacotron-Wavenet-Vocoder) 참고하시면 됩니다.
+* [Rayhane-mamah](https://github.com/Rayhane-mamah/Tacotron-2)의 구현은 Customization된 Layer를 많이 홯용했는데, 제가 보기에는 너무 복잡하게 한 것 같아, Cumomization Layer를 많이 줄이고, Tensorflow에 구현되어 있는 Layer를 많이 활요했습니다.
 
 	
 ## Tacotron 1에서 좋은 결과를 얻기 위해서는 
