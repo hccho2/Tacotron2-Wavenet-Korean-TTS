@@ -38,7 +38,7 @@ parser.add_argument('--data_paths', default='.\\data\\moon,.\\data\\son')
 parser.add_argument('--load_path', default='logdir-tacotron2/moon+son_2019-02-27_00-21-42')
 ```
 
-- model_type은 'single' 또는 ' multi-speaker'로 지정할 수 있다. speaker가 1명 일 때는, hparams의 model_type = 'single'로 하고 train_tacotron.py 내에서 '--data_paths'를 1개만 넣어주면 된다.
+- model_type은 'single' 또는 ' multi-speaker'로 지정할 수 있다. speaker가 1명 일 때는, hparams의 model_type = 'single'로 하고 train_tacotron2.py 내에서 '--data_paths'를 1개만 넣어주면 된다.
 ```
 parser.add_argument('--data_paths', default='D:\\Tacotron2\\data\\moon')
 ```
