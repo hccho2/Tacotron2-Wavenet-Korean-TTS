@@ -28,7 +28,7 @@ Based on
 - 2개 모델 모두 train 후, tacotron에서 생성한 mel spectrogram을 wavent에 local condition으로 넣어 test하면 된다.
 
 
-### Tacotron Training
+### Tacotron2 Training
 - train_tacotron2.py 내에서 '--data_paths'를 지정한 후, train할 수 있다. data_path는 여러개의 데이터 디렉토리를 지정할 수 있습니다.
 ```
 parser.add_argument('--data_paths', default='.\\data\\moon,.\\data\\son')
