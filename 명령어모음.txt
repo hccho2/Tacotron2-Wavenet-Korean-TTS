@@ -1,0 +1,19 @@
+python preprocess.py --num_workers 10 --name son --in_dir .\datasets\son --out_dir .\data\son
+
+
+python preprocess.py --num_workers 10 --name moon --in_dir .\datasets\moon --out_dir .\data\moon
+
+
+python train_tacotron2.py
+
+
+python train_vocoder.py
+
+
+python synthesizer.py --load_path logdir-tacotron2/moon+son_2019-02-27_00-21-42 --num_speakers 2 --speaker_id 0 --text "오스트랄로피테쿠스 아파렌시스는 멸종된 사람족 종으로, 현재에는 뼈 화석이 발견되어 있다"
+python synthesizer.py --load_path logdir-tacotron2/moon+son_2019-02-27_00-21-42 --num_speakers 2 --speaker_id 1 --text "오스트랄로피테쿠스 아파렌시스는 멸종된 사람족 종으로, 현재에는 뼈 화석이 발견되어 있다"
+
+python generate.py --mel ./logdir-wavenet/mel-moon.npy --gc_cardinality 2 --gc_id 0 ./logdir-wavenet/train/2019-03-27T20-27-18
+python generate.py --mel ./logdir-wavenet/mel-son.npy --gc_cardinality 2 --gc_id 1 ./logdir-wavenet/train/2019-03-27T20-27-18
+python generate.py --mel ./logdir-wavenet/moon-Aust.npy --gc_cardinality 2 --gc_id 0 ./logdir-wavenet/train/2019-03-27T20-27-18
+python generate.py --mel ./logdir-wavenet/son-Aust.npy --gc_cardinality 2 --gc_id 1 ./logdir-wavenet/train/2019-03-27T20-27-18
