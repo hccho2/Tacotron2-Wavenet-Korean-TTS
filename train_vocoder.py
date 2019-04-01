@@ -45,7 +45,7 @@ def eval_step(sess,logdir,step,waveform,upsampled_local_condition_data,speaker_i
             # 다음 과정은 config.temperature==1이면 각 원소를 합으로 나누어주는 것에 불과. 이미 softmax를 적용한 겂이므로, 합이 1이된다. 그래서 값의 변화가 없다.
             # config.temperature가 1이 아니며, 각 원소의 log취한 값을 나눈 후, 합이 1이 되도록 rescaling하는 것이 된다.
             np.seterr(divide='ignore')
-            scaled_prediction = np.log(prediction) / config.temperature   # config.temperature인 경우는 값의 변화가 없다.
+            scaled_prediction = np.log(prediction) / temperature   # config.temperature인 경우는 값의 변화가 없다.
             scaled_prediction = (scaled_prediction - np.logaddexp.reduce(scaled_prediction,axis=-1,keepdims=True))  # np.log(np.sum(np.exp(scaled_prediction)))
             scaled_prediction = np.exp(scaled_prediction)
             np.seterr(divide='warn')
