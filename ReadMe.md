@@ -61,7 +61,7 @@ parser.add_argument('--data_dir', type=str, default=DATA_DIRECTORY, help='The di
 LOGDIR = './/logdir-wavenet//train//2018-12-21T22-58-10'
 parser.add_argument('--logdir', type=str, default=LOGDIR)
 ```
-- wavenet train 후, tacotron이 생성한 mel spectrogram(npy파일)을 local condition으로 넣어서 STT의 최종 결과를 얻을 수 있다.
+- wavenet train 후, tacotron이 생성한 mel spectrogram(npy파일)을 local condition으로 넣어서 TTS의 최종 결과를 얻을 수 있다.
 > python generate.py --mel ./logdir-wavenet/mel-moon.npy --gc_cardinality 2 --gc_id 0 ./logdir-wavenet/train/2018-12-21T22-58-10
 
 ### Result
